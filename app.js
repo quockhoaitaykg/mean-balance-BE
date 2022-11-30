@@ -2,9 +2,11 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const userRoute = require("./routes/UserRoute");
  
 //middleware
 app.use(express.json());
+app.use("/api/users", userRoute);
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
