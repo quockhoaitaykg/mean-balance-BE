@@ -16,9 +16,13 @@ exports.getUserByUsername = async (params) => {
 };
 
 exports.updateUser = async (id, p) => {
-  return await db.users.findByIdAndUpdate(id, p);
+  return await db.users.update(p, {
+    where: { id: { [Op.eq]: id } }
+  });
 };
 
 exports.deleteUser = async (id) => {
-  return await db.users.findByIdAndDelete(id);
+  return await db.users.destroy({
+    where: { id: id}
+  });
 };

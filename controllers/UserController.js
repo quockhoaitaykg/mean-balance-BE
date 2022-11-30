@@ -18,9 +18,9 @@ exports.createUser = async (req, res) => {
   }
 };
 
-exports.getUserByUsername = async (req, res) => {
+exports.getUserByName = async (req, res) => {
   try {
-    const type = await userService.getUserByUsername(req.body.name);
+    const type = await userService.getUserByUsername(req.params.name);
     res.json({ data: type, status: "success" });
   } catch (err) {
     res.status(500).json({ error: err.message });
